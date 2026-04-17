@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartCrowdTrack – Location</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/location.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>SmartCrowdTrack</h2>
+
+        <ul class="menu">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('report') }}">Reports</a></li>
+            <li><a href="{{ url_for('location') }}">Location</a></li>
+            <li><a href="{{ url_for('settings') }}">Settings</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <input type="text" placeholder="Search location ,incidents or alerts..." class="search">
+
+            <div class="top-right">
+                <span class="bell">🔔<span class="badge">3</span></span>
+                <div class="user">
+                    <strong>Admin User</strong><br>
+                    <small>Administration</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- HEADER -->
+        <div class="header-row">
+            <div>
+                <h2>Locations</h2>
+                <p class="subtitle">Monitor all zones</p>
+            </div>
+
+            <div class="header-actions">
+                <input type="text" placeholder="Search zones..." class="search-small">
+                <button class="btn primary">+ Add Zones</button>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats">
+            <div class="card"><p>Total zones</p><h2 id="zones">0</h2></div>
+            <div class="card"><p>Total Attendees</p><h2 id="attendees">0</h2></div>
+            <div class="card"><p>Active Cameras</p><h2 id="cameras">0</h2></div>
+            <div class="card"><p>Avg Capacity</p><h2 id="capacity">0%</h2></div>
+        </div>
+
+        <!-- MAIN GRID -->
+        <div class="location-main">
+
+            <!-- MAP -->
+            <div class="map-box">
+                <div class="map-header">
+                    <h3>Interactive Venue Map</h3>
+                    <div class="legend">
+                        <span class="green">● Normal</span>
+                        <span class="yellow">● Warning</span>
+                        <span class="red">● Critical</span>
+                    </div>
+                </div>
+
+                <div class="map-area">
+
+                    <div class="entry">Entry</div>
+                    <div class="exit">Exit</div>
+
+                    <div class="zone zone-a" onclick="selectZone(0)">
+                      <p>Zone A</p>
+                      <span id="zoneA">0</span>
+                    </div>
+
+                    <div class="zone zone-b" onclick="selectZone(1)">
+                      <p>Zone B</p>
+                      <span id="zoneB">0</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- DETAILS -->
+          <div>   
+            <class="zone-details">
+                <h3 id="zoneTitle">Zone A</h3>
+
+                <p>Status</p>
+                <span id="zoneStatus" class="status normal">Normal</span>
+
+                <p>Location Name</p>
+                <strong id="zoneName">North Area</strong>
+
+                <p>Description</p>
+                <span id="zoneDesc">Main entry crowd</span>
+
+                <p>Occupancy Rate</p>
+                <div class="progress-bar">
+                  <div id="progressFill" class="progress-fill"></div>
+                </div>
+
+                <div class="info-row">
+                  <span id="cameraCount">📷 1</span>
+                  <span id="temperature">🌡️ 22°C</span>
+                </div>
+
+                <button class="btn">📷 View Live Feed</button>
+                <button class="btn secondary">⚙ Configure Zone</button>
+            </div>
+          </div>
+        </div>
+
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/location.js') }}"></script>
+
+</body>
+</html>

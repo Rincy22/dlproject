@@ -1,0 +1,270 @@
+/* TOPBAR */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search {
+    width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.top-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bell {
+    position: relative;
+    font-size: 18px;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: red;
+    color: white;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 50%;
+}
+
+/* HEADER ROW */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-small {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* LEGEND */
+.legend span {
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.green { color: green; }
+.yellow { color: orange; }
+.red { color: red; }
+
+/* INFO ROW */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+/* ================= LOCATION PAGE ================= */
+
+.location-container {
+    padding: 20px 30px;
+}
+
+/* Title */
+.location-container h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.location-container p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* ================= TOP STATS ================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stats div {
+    background: #f8f9fc;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.stats span {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* ================= MAIN LAYOUT ================= */
+
+.location-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+/* ================= MAP SECTION ================= */
+
+.map-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.map-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.map-area {
+    height: 350px;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    position: relative;
+    background: #fafafa;
+}
+
+/* Entry / Exit */
+.entry {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 12px;
+    background: #d6e4ff;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.exit {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 12px;
+    background: #ffd6d6;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+/* Zones */
+.zone {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.zone-a {
+    top: 200px;
+    left: 150px;
+}
+
+.zone-b {
+    top: 120px;
+    right: 150px;
+}
+
+/* ================= RIGHT PANEL ================= */
+
+.zone-details {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.zone-details h3 {
+    margin-bottom: 15px;
+}
+
+/* Status Badge */
+.status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.status.normal {
+    background: #d4f8e8;
+    color: #0a8f5b;
+}
+
+.status.warning {
+    background: #fff4d6;
+    color: #b58105;
+}
+
+.status.critical {
+    background: #ffd6d6;
+    color: #b00020;
+}
+
+/* Progress Bar */
+.progress-bar {
+    height: 8px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #28a745;
+    width: 0%;
+}
+
+/* Buttons */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: #4c8bf5;
+    color: white;
+}
+
+.btn-secondary {
+    background: #f1f1f1;
+}
+
+.zone {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.zone:hover {
+    transform: scale(1.1);
+    background: #333;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>SmartCrowdTrack</h2>
+        <ul class="menu">
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/report">Reports</a></li>
+            <li><a href="/location">Location</a></li>
+            <li class="active"><a href="/settings">Settings</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <div class="topbar">
+            <h2>Settings</h2>
+            <button class="btn" onclick="saveSettings()">Save Changes</button>
+        </div>
+
+        <div class="settings-wrapper">
+
+            <!-- LEFT MENU -->
+            <div class="settings-menu">
+                <button class="active" onclick="showTab('profile')" id="profileBtn">👤 User Profile</button>
+                <button onclick="showTab('notification')" id="notifyBtn">🔔 Notification</button>
+            </div>
+
+            <!-- RIGHT CONTENT -->
+            <div class="settings-content">
+
+                <!-- PROFILE -->
+                <div id="profileTab">
+
+                    <div class="profile-card">
+                        <div class="avatar">AT</div>
+                        <h3 id="profileName">Admin User</h3>
+                        <p>Security Manager</p>
+                    </div>
+
+                    <div class="form">
+                        <input id="name" placeholder="Full Name">
+                        <input id="email" placeholder="Email">
+                        <input id="phone" placeholder="Phone">
+
+                        <!-- DROPDOWN -->
+                        <select id="department">
+                            <option value="">Select Department</option>
+                            <option>Security</option>
+                            <option>Operations</option>
+                            <option>Management</option>
+                            <option>IT Support</option>
+                            <option>Surveillance</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- NOTIFICATION -->
+                <div id="notificationTab" style="display:none;">
+
+                    <div class="toggle-card">
+                        <p>Email Alerts</p>
+                        <label class="switch">
+                            <input type="checkbox" id="email_alerts">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-card">
+                        <p>SMS Alerts</p>
+                        <label class="switch">
+                            <input type="checkbox" id="sms_alerts">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-card">
+                        <p>Push Notifications</p>
+                        <label class="switch">
+                            <input type="checkbox" id="push_notifications">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+
+</body>
+</html>

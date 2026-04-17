@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartCrowdTrack – Report</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/report.css') }}">
+
+    <!-- Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>SmartCrowdTrack</h2>
+
+        <ul class="menu">
+            <li>
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            </li>
+
+            <li class="active">
+                <a href="{{ url_for('report') }}">Reports</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('location') }}">Locations</a>
+            </li>
+
+            <li>
+                <a href="#">Settings</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main report-container">
+
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <h2>Report</h2>
+
+            <div class="report-actions">
+                <button class="btn-outline" onclick="exportPDF()">📄 Export PDF</button>
+                <button class="btn-primary" onclick="generateReport()">⚡ Generate Report</button>
+            </div>
+        </div>
+
+        <p class="subtitle">Analytics & crowd insights</p>
+
+        <!-- DATE FILTER -->
+        <div class="filter-box">
+            <div>
+                <label>Start Date</label><br>
+                <input type="date" id="startDate">
+            </div>
+
+            <div>
+                <label>End Date</label><br>
+                <input type="date" id="endDate">
+            </div>
+        </div>
+
+        <!-- SUMMARY CARDS -->
+        <div class="cards">
+            <div class="card">
+                <p>Total Unique People</p>
+                <h2 id="totalAttendees">0</h2>
+                <span class="green">Live</span>
+            </div>
+
+            <div class="card">
+                <p>Aggression Incidents</p>
+                <h2 id="aggressionIncident">0</h2>
+                <span class="red">Live</span>
+            </div>
+
+            <div class="card">
+                <p>Peak Crowd Density</p>
+                <h2 id="peakDensity">0%</h2>
+                <span class="red">Live</span>
+            </div>
+        </div>
+
+        <!-- CHART -->
+        <div class="panel">
+            <h3>Incidents Over Time</h3>
+            <canvas id="incidentChart"></canvas>
+        </div>
+
+    </main>
+</div>
+
+<!-- JS -->
+<script src="{{ url_for('static', filename='js/report.js') }}"></script>
+
+</body>
+</html>

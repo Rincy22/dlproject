@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartCrowdTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>SmartCrowdTrack</h2>
+
+        <!-- ✅ MODIFIED SIDEBAR ONLY -->
+        <ul class="menu">
+            <li class="active">
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="/report">Reports</a>
+            </li>
+
+            <li>
+                <a href="/location">Location</a>
+            </li>
+
+            <li>
+                <a href="/settings">Settings</a>
+            </li>
+        </ul>
+
+        <p class="status">● All Systems Active</p>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <input type="text" placeholder="Search location, incidents or alerts...">
+            <div class="user">Admin User</div>
+        </div>
+        <div style="margin: 15px 0;">
+    <a href="/video-upload" class="upload-btn">
+        📤 Upload Video for Analysis
+    </a>
+</div>
+
+        <h2>Dashboard Overview</h2>
+        <p class="subtitle">Real-time crowd monitoring and analytics</p>
+
+        <!-- METRIC CARDS -->
+        <div class="cards">
+            <div class="card">
+                <p>Total Unique Attendees</p>
+                <h2 id="totalPeople">0</h2>
+            </div>
+
+            <div class="card alert">
+                <p>Aggressive Incidents</p>
+                <h2 id="aggressionCount">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Peak Crowd Density</p>
+                <h2 id="density">0%</h2>
+            </div>
+
+            <div class="card">
+                <p>Active Monitoring Zones</p>
+                <h2>2</h2>
+            </div>
+        </div>
+
+        <!-- LIVE VIDEO -->
+        <section class="live">
+            <h3>Live Surveillance</h3>
+            <img src="/video_feed" class="video">
+        </section>
+
+        <!-- CHART + ALERTS -->
+        <div class="grid">
+
+            <div class="chart">
+                <h3>Attendee Count Over Time</h3>
+                <canvas id="countChart"></canvas>
+            </div>
+
+            <div class="alerts">
+                <h3>Active Alerts</h3>
+                <ul id="alertList"></ul>
+            </div>
+
+        </div>
+
+        <!-- HEATMAP + TIMELINE -->
+        <div class="grid">
+
+            <div class="heatmap">
+                <h3>Crowd Density Heatmap</h3>
+                <img
+                    id="heatmapImage"
+                    src=""
+                    alt="Crowd Density Heatmap"
+                    style="width:100%; border-radius:12px;"
+                >
+            </div>
+
+            <div class="timeline">
+                <h3>Incident Timeline</h3>
+                <ul id="timeline"></ul>
+            </div>
+
+        </div>
+
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
